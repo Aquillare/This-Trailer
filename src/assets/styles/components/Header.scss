@@ -1,0 +1,50 @@
+header{
+    background-color:#8F57FD;
+    display: flex;
+    width: 100%;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__img{
+    width: 200px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.header__menu{
+    margin-right: 30px;
+}
+.header__menu--profile{
+    display: flex;
+    margin-right: 8px;
+    align-items: center ;
+}
+.header__menu--profile img{
+    width: 50px;
+    height: 50px;
+}
+.header__menu--profile p{
+    color: white;
+    margin: 0px;
+}
+.header__menu ul{
+    display: none;
+    list-style: none;
+    position: absolute;
+    text-align: right;
+    padding: 0px;
+    width: 100px;
+    margin: 0px 0px 0px -14px;
+   
+}
+.header__menu:hover ul, ul:hover li {
+    display: block;
+}
+.header__menu li a{
+    color: white;
+    text-decoration: none;
+
+}
+.header__menu li:hover a{
+    text-decoration: underline;
+} 

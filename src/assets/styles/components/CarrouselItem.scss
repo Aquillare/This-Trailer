@@ -1,0 +1,56 @@
+.carrousel-item{
+    background-color: aqua;
+    width: 200px;
+    height: 250px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-right: 10px;
+    transition: 450ms;
+    transform-origin: center left;
+    position: relative;
+    overflow: hidden;
+
+}
+.carrousel-item:hover ~ .carrousel-item{
+    transform: translate3d(100px,0,0);
+}
+
+.carrousel-item__img{
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+}
+.carrousel-item__details{
+    background: linear-gradient(to top, rgba(0,0,0, 0.9) 0%, rgba(0,0,0,0) 100%);
+    font-size: 10px;
+    opacity:0;
+    transition: 450ms opacity;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom:0px;
+    left:0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    color: white;
+}
+.carrousel-item__details:hover{
+    opacity: 1;
+}
+
+
+.carrousel-item__details img{
+    margin-left: 15px;
+    width: 25px;
+    height: 25px;
+}
+.carrousel-item__details--title{
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+.carrousel-item__details--subtitle{
+    margin-left: 15px;
+    margin-top: 0px;  
+}
