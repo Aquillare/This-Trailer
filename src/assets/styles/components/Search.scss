@@ -25,3 +25,17 @@
 ::placeholder{
     color: white;
 }
+
+.cover{
+    height:200px;
+    width: 170px;
+    border-radius: 30px;
+    display: flex;
+    position: absolute;
+}
+.cover:hover{
+    opacity: 1;
+    height: 150px;
+    width: 100px;
+    transform: translate3d(0,100,20);
+}

@@ -7,6 +7,7 @@ module.exports = {
     output:{
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+        publicPath: '/',
         assetModuleFilename: "[hash].[ext]",
     },
     resolve: {
@@ -41,13 +42,16 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(jpg|gif|png)$/,
+                test: /\.(jpg|gif|png|mp4)$/,
                 type: 'asset/resource',
 
                 
             },
 
         ],
+    },
+    devServer:{
+        historyApiFallback: true,
     },
     plugins: [
         new HtmlWebpackPlugin({

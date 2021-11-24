@@ -1,0 +1,33 @@
+.error{
+    background: linear-gradient( #21c08b ,  #8F57FD);
+    display: flex;
+    width: 100%;
+    height: 530px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.error__404{
+    color: white;
+    font-size: 100px;
+    font-weight: bold;
+    margin:0px;
+}
+.error__p{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+/* De esta manera con @keygrames , establecemos una animacion */
+
+@keyframes pulse{                                    
+    0% {transform: scale(1);}
+    50% {transform: scale(1.5);}
+    100%{transform: scale(1);}
+}
+.error__404{
+    animation-name: pulse;    /*Aqui usamos la animacion creada*/
+    animation-duration: 4s;
+}

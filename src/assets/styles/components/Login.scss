@@ -1,0 +1,126 @@
+
+.login{
+    background: linear-gradient(#21C08B, #8F57FD);
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 30px;
+    min-height: calc(100vh);  /*vh es similar a porcentaje , debido a que tambien es una medida realtiva, pero indica el porcentaje que ve el usuario*/
+}
+.login__container{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 40px;
+    color: white;
+    padding: 60px 68px 40px;
+    min-height: 700px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 2px 2px 10px 1px rgba(2, 2, 2, 0.568);
+}
+.login__container--form{
+    display: flex;
+    flex-direction: column;
+}
+.login__container--form label{
+   font-size: 14px;
+}
+.login__container--remember-me{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.login__container--remember-me a{
+    color:white;
+    font-size: 14px;
+    text-decoration: none;
+}
+.login__container--remember-me a:hover{
+    text-decoration: underline;
+}
+.login__container--social-media > div { /*con > seleccioneamos una eqtiqueta hijo de la clase*/
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.login__container--social-media > div >img {
+    width: 30px;
+    margin-right: 10px;
+}
+.login__container--register{
+    font-size: 14px;
+}
+.login__container--register a {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold; /*asi colocamos el texto en negrita*/
+}
+.login__container--register a:hover {
+    text-decoration: underline;
+}
+.input-login{
+    background: transparent;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid white;
+    color: white;
+    font-family: 'Mulish', sans-serif;
+    margin-bottom: 20px;
+    padding: 0px 20px;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    border-radius: 0px;
+}
+::placeholder{
+    color:white;
+}
+.button{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 35px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Mulish', sans-serif;
+    height: 50px;
+    letter-spacing: 1px;
+    margin-top: 20px;  
+}
+.button:hover{
+    box-shadow: 1px 1px 3px 3px  rgba(255, 255, 255, 0.6);
+}
+
+@media only screen and(max-width:600px){
+    .login__container{
+        background-color: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 0px;
+        color: white;
+        padding: 60px 68px 40px;
+        min-height: 700px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        box-shadow: none;
+    }
+
+    .login__container--form label{
+        font-size: 12px;
+     }
+     .login__container--remember-me a{
+        color:white;
+        font-size: 12px;
+        text-decoration: none;
+        margin-left: 18px;
+    }
+}

@@ -6,6 +6,11 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+
+.isLogin, .isRegister{
+    background-color: #21C08B;
+}
+
 .header__img{
     width: 200px;
     margin-left: 5px;
@@ -22,6 +27,8 @@ header{
 .header__menu--profile img{
     width: 50px;
     height: 50px;
+    border-radius: 100%;
+    object-fit: cover;  /*no importa la forma de la imagen la ajustara sin inconvenientes, valor para ordenar neustra imagenes*/
 }
 .header__menu--profile p{
     color: white;
