@@ -33,7 +33,7 @@ const ResultSearch = props => {
 
     const equisButton = () =>{   //con equisButton usamos el action searchVideo, para enviar un array vacio a la propiedad search del estado incial, asi myList no contendra valores, porlo que no se mostrara ningun elemento.
 
-            props.searchVideo("");
+            props.searchVideo("0");
         
     };
     console.log(props.search.length)

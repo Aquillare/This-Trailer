@@ -42,7 +42,8 @@ const reducer = (state,action) => {
         case 'SEARCH_VIDEO':
             return{
                 ...state,
-                search: state.trends.find(item => item.title === (action.payload)) ||
+                search: state.trends.find(item => item.title.includes(action.payload.charAt(0).toUpperCase())) ||
+                // search : state.trends.find(item => item.title === (action.payload)) ||
                 state.originals.find(item => item.title === (action.payload)) ||
                 [],              
             }
