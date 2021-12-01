@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import '../assets/styles/Layout.scss';
 import Footer from './Footer';
 
 const Layout = ( {children} ) => (
