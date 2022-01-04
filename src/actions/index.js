@@ -36,4 +36,35 @@ export const searchVideo = payload => ({
 export const resultSearch = payload => ({
     type: 'RESULT_SEARCH',
     payload,
+});
+
+export const addVideosStateOriginals = payload => ({
+    type: 'ADD_VIDEOS_STATE_ORIGINALS',
+    payload,
 })
+
+export const addVideosStateTrends = payload => ({
+    type: 'ADD_VIDEOS_STATE_TRENDS',
+    payload,
+})
+
+export const nextPageTrends = payload => ({
+    type: 'NEXT_PAGE_TRENDS',
+    payload,
+})
+
+export const nextPageOriginals = payload => ({
+    type: 'NEXT_PAGE_ORIGINALS',
+    payload,
+})
+
+export const addKeyVideo = payload => ({
+    type: 'ADD_KEY_VIDEO',
+    payload
+})
+
+export const getMovieInfo = payload => ({
+    type: 'GET_MOVIE_INFO',
+    payload
+})
+

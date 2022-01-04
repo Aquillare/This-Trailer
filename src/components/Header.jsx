@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import gravatar from '../utils/gravatar';
 import "../assets/styles/components/Header.scss";
 import UserIcon from "../assets/static/icons8-usuario-masculino-en-circulo-50.png";
+import logoVideo from '../assets/static/logoVideo.png'
 import { logoutRequest } from '../actions';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
 
 
 
@@ -34,7 +34,10 @@ const Header = (props) => {
         <header className={headerClass}>
 
             <Link  to="/">
-            <img className="header__img" src="https://raw.githubusercontent.com/platzi/PlatziVideo/feature/react/src/assets/static/logo-platzi-video-BW2.png" alt="logo platzi video"/>
+            <div className='headerLogo_container'>
+                <img className="header__img" src={logoVideo} alt="logo video"/>
+                <p className='header_title'>This Trailer</p>
+            </div>
             </Link>
             
 

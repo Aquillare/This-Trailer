@@ -19,6 +19,7 @@
     width: 200px;
     height: 250px;
     object-fit: cover;
+    transition: 120ms;
 }
 .carrousel-item__details{
     background: linear-gradient(to top, rgba(0,0,0, 0.9) 0%, rgba(0,0,0,0) 100%);
@@ -45,6 +46,14 @@
     margin-left: 15px;
     width: 25px;
     height: 25px;
+    transition:120ms;
+}
+.carrousel-item__details img:hover{
+    filter: brightness(1.2);
+}
+.carrousel-item__details img:active{
+    width: 22px;
+    height: 22px;
 }
 .carrousel-item__details--title{
     margin-left: 15px;
@@ -56,3 +65,41 @@
 }
 
 
+
+
+
+
+
+.details_info[data-descr]{
+    cursor: help;
+    position:relative;
+}
+.details_info[data-descr]:hover::after,.details_info[data-descr]:focus::after{
+    content:attr(data-descr);
+    position: absolute;
+    color: white;
+    left: 0;
+    bottom:28px;
+    font-size: 12px;
+    min-width: auto;
+    background: #2D2D34;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.details_add[data-descr]{
+    cursor:help;
+    position:relative;
+}
+.details_add[data-descr]:hover::after,.details_add[data-descr]:focus::after{
+    content:attr(data-descr);
+    position: absolute;
+    color:white;
+    left:0;
+    bottom:28px;
+    font-size: 12px;
+    min-width: auto;
+    background: #2D2D34;
+    border-radius: 4px;
+    z-index: 1;
+}

@@ -1,10 +1,13 @@
 @import './Vars.scss';
 @import './Media.scss';
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Pushster&display=swap');
+
 
 body{
     margin:0;
-    background-color: $main-color;
-    font-family: $theme-font;
+    // background-color: $main-color;
+    background: radial-gradient(#17BEBB,$main-color);
+    font-family: 'Kanit', sans-serif
 }
 
 *{
