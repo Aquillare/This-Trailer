@@ -1,8 +1,14 @@
+.categories{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .categories_tittle{
     color:white;
-    width: 100%;
+    width: 90%;
     height: 20px;
-    font-size: 16px;
-    margin: 0px 0px 0px 30px;
-    position: absolute;
+    font-size: 24px;
+    margin: 0px 0px 0px 36px;
+
 }

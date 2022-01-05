@@ -1,15 +1,17 @@
-import React from 'react';
-import '../assets/styles/Layout.scss';
+import React, { useEffect } from 'react';
+import Header from './Header';
 import Footer from './Footer';
 
 const Layout = ( {children} ) => (
 
     <div className="App">
-        
+
             {children}
         <Footer/>
         
     </div>
+
 );
 
-export default Layout;
+
+export default (Layout);

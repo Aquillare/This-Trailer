@@ -1,13 +1,23 @@
 .carrousel{
+ 
     width: 100%;
     overflow: scroll;
     padding-left:30px; 
     position: relative;
+    overflow-y: auto;
 }
 
-.carrousel::-webkit-scrollbar {
-    display: none;
-  }
+.carrousel::-webkit-scrollbar{
+    width: 10px;
+    background:transparent;
+}
+
+.carrousel::-webkit-scrollbar-thumb{
+    background: #E365C1;
+    border-radius: 30px;
+ 
+}
+
 
 .carrousel__container{
     white-space: nowrap;

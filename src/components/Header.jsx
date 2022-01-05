@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import gravatar from '../utils/gravatar';
 import "../assets/styles/components/Header.scss";
 import UserIcon from "../assets/static/icons8-usuario-masculino-en-circulo-50.png";
+import logoVideo from '../assets/static/logoVideo.png'
 import { logoutRequest } from '../actions';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
 
 
 
@@ -18,7 +18,7 @@ import classNames from 'classnames';
 //tambien debemos añadir un cierre a las etiquetas que no lo poseaan, ej <img />
 
 const Header = (props) => {
-    const {user, isLogin , isRegister} = props;   //destructuramos user de props, para poder usar user, en vez de props.user, tambien agregamos isLogin e isRegister para trabajar con el cambio de los stilos del header.
+    const {user, isLogin , isRegister, lenguageUS} = props;   //destructuramos user de props, para poder usar user, en vez de props.user, tambien agregamos isLogin e isRegister para trabajar con el cambio de los stilos del header.
     const hasUser = Object.keys(user).length > 0;  //cone esta validacion cimprovamos si user posee un usuario.
 
     const handleLogout = () => {
@@ -28,13 +28,16 @@ const Header = (props) => {
     const headerClass = classNames('header',{
         isLogin,
         isRegister,
-    })
+    });
 
     return(
         <header className={headerClass}>
 
             <Link  to="/">
-            <img className="header__img" src="https://raw.githubusercontent.com/platzi/PlatziVideo/feature/react/src/assets/static/logo-platzi-video-BW2.png" alt="logo platzi video"/>
+            <div className='headerLogo_container'>
+                <img className="header__img" src={logoVideo} alt="logo video"/>
+                <p className='header_title'>This Trailer</p>
+            </div>
             </Link>
             
 

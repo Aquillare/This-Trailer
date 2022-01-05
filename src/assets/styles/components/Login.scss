@@ -1,6 +1,6 @@
 
 .login{
-    background: linear-gradient(#21C08B, #8F57FD);
+    background: linear-gradient(#17BEBB,#2D2D34);
     display: flex;
     align-items: center ;
     justify-content: center;
@@ -20,6 +20,7 @@
     flex-direction: column;
     justify-content: space-around;
     box-shadow: 2px 2px 10px 1px rgba(2, 2, 2, 0.568);
+    margin: 24px 24px;
 }
 .login__container--form{
     display: flex;

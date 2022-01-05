@@ -36,16 +36,15 @@ const reducer = (state,action) => {
             return{
                 ...state,
                 playing: state.trends.find(item => item.id === Number(action.payload)) ||                       //usamos el metodo find de js para hacer una busqueda dentro de los arreglos que tenemos con la informacion de los items, buscaremos en los ids la informacion del id que coincida con el payload. 
-                state.originals.find(item =>  item.id === Number(action.payload)) ||                               //action.payload llega como un string e item.id como un numero, por lo que con Number convertimos action.payload en tipo Number.
+                state.originals.find(item =>  item.id === Number(action.payload)) ||
+                state.search.find(item => item.id === Number(action.payload) ) ||
+                state.myList.find(item => item.id === Number(action.payload) ) ||                               //action.payload llega como un string e item.id como un numero, por lo que con Number convertimos action.payload en tipo Number.
                 [],                                                                                            //si noconseguimos un id en trends, se buscara en originals, y si tampoco conseguimos ahi, regresaremos un array vacio.
             }
         case 'SEARCH_VIDEO':
             return{
                 ...state,
-                search: state.trends.find(item => item.title.includes(action.payload.charAt(0).toUpperCase())) ||
-                // search : state.trends.find(item => item.title === (action.payload)) ||
-                state.originals.find(item => item.title === (action.payload)) ||
-                [],              
+                search: action.payload,      
             }
         case 'RESULT_SEARCH':
             return{
@@ -53,7 +52,45 @@ const reducer = (state,action) => {
                 search: state.trends.find(item => item.title === (action.payload)) ||
                 state.originals.find(item => item.title === (action.payload)) ||
                 [],            
-            }               
+            }
+        case 'ADD_VIDEOS_STATE_TRENDS':
+
+            return{
+                ...state,
+                trends : action.payload,
+
+            }
+        case 'ADD_VIDEOS_STATE_ORIGINALS':
+            return{
+                ...state,
+                originals: action.payload,
+            }    
+        case 'NEXT_PAGE_TRENDS':
+            return{
+                ...state,
+                numberPageTrends:  action.payload,
+            }
+         case 'NEXT_PAGE_ORIGINALS':
+            return{
+                ...state,
+                numberPageOriginals: action.payload,
+            }
+         case 'ADD_KEY_VIDEO':
+             return{
+                 ...state,
+                 videoKey: action.payload
+             }
+         case 'GET_MOVIE_INFO':
+             return{
+                 ...state,
+                 movieInfo: action.payload
+             }
+         case 'CHANGE_LENGUAGE':
+             return{
+                 ...state,
+                 lenguageUS : action.payload
+             }                
+        
         default:
             return state;
         
@@ -99,4 +136,19 @@ export default reducer;
 //     return {
 //       ...state,
 //       mylist: [...state.mylist, action.payload]
+//     }
+
+
+
+
+
+//--- bsuqueda sin api
+
+// case 'SEARCH_VIDEO':
+//     return{
+//         ...state,
+//         search: state.trends.find(item => item.title.includes(action.payload.charAt(0).toUpperCase())) ||
+//         // search : state.trends.find(item => item.title === (action.payload)) ||
+//         state.originals.find(item => item.title === (action.payload)) ||
+//         [],              
 //     }

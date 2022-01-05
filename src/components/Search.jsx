@@ -4,11 +4,11 @@ import '../assets/styles/components/Search.scss';
 import { searchVideo } from '../actions';
 import { resultSearch } from '../actions';
 
+
 const Search = props => {
 
-    let {search} = {props}
+    const {search} = props.search;
 
-    
     const [form, setValues] = useState({
         videoSearch:"",
 
@@ -17,18 +17,37 @@ const Search = props => {
 
     const handleInput = event =>{
         let value = event.target.value;
-        console.log({[event.target.name] : value})
         setValues({
             [event.target.name] : value
         });
     };
 
     const handleSubmit = event =>{
-        if(event.key == "Enter"){
+        if(event.key == "Enter" || event.type == "click"){
         event.preventDefault();
-        props.searchVideo(form.videoSearch);
+        const vSearch = async() =>{
+            let responseSearch;
+            await fetch(`https://api.themoviedb.org/3/search/movie?api_key=06b042254658e847272c1a8bf7fe0fb5&language=en-US&query=${form.videoSearch.replace(" ","+")}&page=1&include_adult=false`)
+            .then(response => response.json())
+            .then(responseJson => responseSearch = responseJson);
+
+            return responseSearch;
+
+        } 
+        const response = vSearch();
+        response.then(responseSearch => responseSearch.results != undefined ?  props.searchVideo(responseSearch.results) : null);
+ 
+       
         }
     }
+
+
+
+
+    const handleTrim = () => {
+        props.searchVideo([]);
+    }
+
 
 
 
@@ -38,7 +57,7 @@ const Search = props => {
 
     return(
     <section className="main">
-        <h2 className="main__title">¿Qué quieres ver hoy?</h2>
+        <h2 className="main__title">What do you want to see today?</h2>
         <input
             id="value"
             onChange={handleInput}
@@ -46,8 +65,12 @@ const Search = props => {
             name="videoSearch" 
             className="input" 
             type="search" 
-            placeholder="Buscar.." 
+            placeholder="Search.." 
         />
+        <div className='containerButtons'>
+            <button type='button' className='buttonSearch' onClick={handleSubmit}>Search</button>
+            <button type='button' className='buttonRemove' onClick={handleTrim}>Clear</button>
+        </div>     
     </section>
     );
 }

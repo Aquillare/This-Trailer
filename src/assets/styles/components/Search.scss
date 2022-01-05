@@ -39,3 +39,47 @@
     width: 100px;
     transform: translate3d(0,100,20);
 }
+
+.containerButtons{
+    margin-top: 20px;
+    display: flex;
+    width:60%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttonSearch{
+    width:354px;
+    height: 32px;
+    margin-right: 10px;
+    border:none;
+    border-bottom: 1px solid black;
+    background: linear-gradient(100deg,#17BEBB,#E365C1);
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color:white;
+}
+.buttonSearch:hover{
+    filter: brightness(1.2);
+}
+.buttonSearch:active{
+    transform: scale3d(0.9,0.9,0.9);
+}
+
+.buttonRemove{
+    width:200px;
+    height: 32px;
+    border:none;
+    border-bottom: 1px solid black;
+    background: rgba(255, 255, 255, 0.658);
+    border-radius: 20px;
+    font-size:18px;
+    // font-weight: bold;
+}
+.buttonRemove:hover{
+    filter: brightness(1.2);
+}
+.buttonRemove:active{
+    transform: scale3d(0.9,0.9,0.9);
+}

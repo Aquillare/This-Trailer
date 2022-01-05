@@ -4,28 +4,47 @@ import { getVideoSource } from '../actions';
 import NotFound from './NotFound';
 import '../assets/styles/components/Player.scss';
 
-const Player = props => {
+const Player = (props) => {
 
     const {id} = props.match.params;
+    const {videoKey} = props
 
-    console.log(props);
-    console.log(id);
+    const key = [...videoKey];
+
+    const keys = key.map(element => Object.values(element));
+
+    const keyPrueba = keys[0];
 
     const hasPlaying =  Object.keys(props.playing).length > 0;
+
+ 
+
+   
 
     useEffect(() => {
         props.getVideoSource(id);
     }, []);   //el array vacio que enviamos como segundo parametro es para no crear un bucle infinito.
 
-    return hasPlaying ? (
+    return hasPlaying && keyPrueba ? (
         <div className="Player">
-            <video controls autoPlay>
-                <source src={props.playing.source} type="video/mp4"></source>
-            </video>
+    
+          
+              <iframe 
+                width="100%" 
+                height="600vh"
+                src={`https://www.youtube.com/embed/${keyPrueba[3]}`}
+                title={`${"hola"}`}
+                allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture" >
+             </iframe>
+
+            
+
+        
             <div className="Player-back">
      
                     <button type="button" onClick={() => props.history.goBack()}>
-                        Regresar
+                          Back  
                     </button>
              
             </div>
@@ -38,6 +57,7 @@ const Player = props => {
 const mapStateToProps = state => {
     return {
         playing: state.playing,
+        videoKey: state.videoKey
     }
 }
 

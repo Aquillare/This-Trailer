@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { connect } from 'react-redux';
+import { addVideosStateTrends, addVideosStateOriginals } from "../actions";
 import Search from "../components/Search";
 import Categories from "../components/Categories";
 import Carrousel from "../components/Carrousel";
@@ -7,40 +8,70 @@ import CarrouselItem from "../components/Carrouseltem";
 import "../assets/styles/Home.scss";
 import Header from "../components/Header";
 import ResultSearch from "../components/ResultSearch";
+import useGetMovies from "../hooks/useGetMovies";
+import { nextPageTrends } from "../actions";
+import { nextPageOriginals } from "../actions";
+import ButtonNext from '../components/ButtonNext';
+import ButtonPrevious from "../components/ButtonPrevious";
+import ContainersButtonsChangePage from "../components/ContainerButtonsChangePage";
+import API from '../API/Api.js';
+
+//para obtener el video de youtube, usar https://www.youtube.com/watch?v= seguido del key del video.
 
 
 
-const Home = ( {myList, trends, originals, search} ) => {
+const Home = ( props ) => {
 
 
-    const url = "https://api.simkl.com/movies/tt1201607?fc33014e0fefd62f0fb92cbdcac8f9a4179ccb231a4956744658d3e992f9830f";
+    const {numberPageTrends, numberPageOriginals, lenguageUS} = props;
 
-    fetch(url)
-.then(response => {
-    const data = response.json()
-})
-.then(data => console.log(data))
-.catch(err => {
-	console.error(err);
-});
+    const {mainUrl, apiKey, categories, page, lenguage} = API;
+
+
+    let routeTrends = `${mainUrl}${categories[0]}${page}${numberPageTrends}&${lenguageUS ? lenguage[0] : lenguage[1] }&${apiKey}`;
+    let routeOriginals = `${mainUrl}${categories[1]}${page}${numberPageOriginals}&${apiKey}`;
+    
+    // let API = `https://api.themoviedb.org/3/movie/popular?page=${numberPageTrends}&api_key=06b042254658e847272c1a8bf7fe0fb5`;
+
+    
+    //variable que almacena un array de objetos de las peliculas traidas
+     //mediante la peticion al API.
+
+    let pageTrends= useGetMovies(routeTrends,numberPageTrends) ;
+    let pageOriginals = useGetMovies(routeOriginals,numberPageOriginals);
+
+    //Con useEffect cuando numberPgeTrends cambie, 
+      //agregamos a la propiedad trends del store de 
+      //la aplicacion, las peliculas almacenadas en la
+      //variable trendss.
+
+    useEffect( () =>{
+        props.addVideosStateTrends(pageTrends),
+    [numberPageTrends]});
+
+    useEffect( () =>{
+        props.addVideosStateOriginals(pageOriginals),
+    [numberPageOriginals]});
+  
 
         return(
             <>
                 <Header/>
                 <Search />
 
-                {search ? <ResultSearch>
+                {props.search ? <ResultSearch>
 
                 </ResultSearch>
                 :
                 null
                 }
 
-                {myList.length > 0 &&
-                <Categories tittle="Mi Lista">
+                {props.myList.length > 0 &&
+                <Categories tittle="My List">
+                    
                     <Carrousel>
-
-                      {myList.map( item =>
+                       
+                      {props.myList.map( item =>
                             <CarrouselItem
                               key={item.id}
                               {...item}
@@ -51,22 +82,38 @@ const Home = ( {myList, trends, originals, search} ) => {
                     </Carrousel>
                 </Categories>}   
                 
-                <Categories tittle="Tendencias">
-                    <Carrousel>
+                <Categories tittle="Trends">
 
+                  
+                        <ContainersButtonsChangePage>
+                            <ButtonPrevious nameButton="Previous" categoryButton="Trends" page={numberPageTrends}/>
+                            <ButtonNext nameButton="Next" categoryButton="Trends" page={numberPageTrends}/>
+                        </ContainersButtonsChangePage>
+           
+                    <Carrousel>
+                    
                         
-                        {trends.map( item =>
-                            <CarrouselItem  key={item.id} {...item}/>
-                        )}
+                        { 
+                            pageTrends.map( item =>
+                                <CarrouselItem  key={item.id} {...item}/>) 
+                       
+                        }
+                        
                      
                     </Carrousel>
                 </Categories>
 
-                <Categories tittle="Originales de Platzi Video">
+                <Categories tittle="Populars">
+
+                    <ContainersButtonsChangePage>
+                        <ButtonPrevious nameButton="Previous" categoryButton="Originals" page={numberPageOriginals}/>
+                        <ButtonNext nameButton="Next" categoryButton="Originals" page={numberPageOriginals}/>
+                    </ContainersButtonsChangePage>
+
                     <Carrousel>
 
 
-                        {originals.map( item =>
+                        {pageOriginals.map( item =>
                             <CarrouselItem key={item.id} {...item}/>
                         )}
                         
@@ -80,11 +127,25 @@ const Home = ( {myList, trends, originals, search} ) => {
 
 const mapStateToProps = state => {
     return{
-        myList : state.myList,
+        myList: state.myList,
         trends: state.trends,
-        originals: state.originals,
+        movieInfo: state.movieInfo,
         search: state.search,
+        originals: state.originals,
+        numberPageTrends: state.numberPageTrends,
+        numberPageOriginals: state.numberPageOriginals,
+        lenguageUS: state.lenguageUS,
     };
 };
 
-export default connect(mapStateToProps, null)(Home);
+const mapDispatchToProps = {
+    addVideosStateTrends,
+    addVideosStateOriginals,
+    nextPageTrends,
+    nextPageOriginals
+}
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

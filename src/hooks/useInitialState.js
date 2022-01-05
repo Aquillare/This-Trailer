@@ -1,17 +1,27 @@
 import { useState, useEffect } from "react";
 
+const initialState = {
+    user: {},
+    "playing": {},
+    numberPageTrends:1,
+    numberPageOriginals:1,
+    "movieInfo":[],
+    "search":[],
+    "myList": [],
+    "trends": [],
+    "originals": [],
+    "videoKey":[]
+}
 
-const useInitialState = (API) => {
 
-    const [videos, setVideos] = useState([]);
+const useInitialState = () => {
 
-    useEffect( () => {
-        fetch(API)
-        .then(response => response.json())
-        .then(data => setVideos(data));
-    }, []);
+    const [state, setEstate] = useState(initialState);
 
-    return videos;
+    return{
+        state,
+    }
+
 };
 
 export default useInitialState;
