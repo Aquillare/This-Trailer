@@ -8,14 +8,17 @@
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development"
   },
-  "keywords": [
-    "react",
-    "javascript"
-  ],
+  "keywords": ["react", "javascript"],
   "author": "Miguel Aguilar migueleduagui@gmail.com",
   "license": "MIT",
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "classnames": "^2.3.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.25.2",
     "md5": "^2.3.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
