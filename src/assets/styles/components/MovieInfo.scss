@@ -93,8 +93,19 @@ transform: scale3d(0.9,0.9,0.9);
     // scroll-behavior: auto;
     overflow-y: scroll ;
     height: 86vh;
+    
+}
+.trailer_view::-webkit-scrollbar{
+    width: 16px;
+    background:rgb(255, 255, 255);
+    border-radius: 20px;
 }
 
+.trailer_view::-webkit-scrollbar-thumb{
+    background: #E365C1;
+    border-radius: 30px;
+ 
+}
 @media (max-width: 540px){
     .movieInfo{
         flex-direction: column;

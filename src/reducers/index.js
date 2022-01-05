@@ -84,7 +84,12 @@ const reducer = (state,action) => {
              return{
                  ...state,
                  movieInfo: action.payload
-             }            
+             }
+         case 'CHANGE_LENGUAGE':
+             return{
+                 ...state,
+                 lenguageUS : action.payload
+             }                
         
         default:
             return state;

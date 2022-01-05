@@ -27,7 +27,7 @@ const Search = props => {
         event.preventDefault();
         const vSearch = async() =>{
             let responseSearch;
-            await fetch(`https://api.themoviedb.org/3/search/movie?api_key=06b042254658e847272c1a8bf7fe0fb5&language=es-LA&query=${form.videoSearch.replace(" ","+")}&page=1&include_adult=false`)
+            await fetch(`https://api.themoviedb.org/3/search/movie?api_key=06b042254658e847272c1a8bf7fe0fb5&language=en-US&query=${form.videoSearch.replace(" ","+")}&page=1&include_adult=false`)
             .then(response => response.json())
             .then(responseJson => responseSearch = responseJson);
 

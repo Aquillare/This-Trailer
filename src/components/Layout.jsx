@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -10,6 +10,8 @@ const Layout = ( {children} ) => (
         <Footer/>
         
     </div>
+
 );
 
-export default Layout;
+
+export default (Layout);

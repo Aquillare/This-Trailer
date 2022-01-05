@@ -14,3 +14,9 @@ footer a{
 footer a:hover{
     text-decoration: underline;
 }
+
+@media (max-width:530px){
+    footer a{
+        font-size: 12px;
+    }
+}

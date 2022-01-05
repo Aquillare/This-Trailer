@@ -23,11 +23,12 @@ import API from '../API/Api.js';
 const Home = ( props ) => {
 
 
-    const {numberPageTrends, numberPageOriginals} = props;
+    const {numberPageTrends, numberPageOriginals, lenguageUS} = props;
 
-    const {mainUrl, apiKey, categories, page} = API;
+    const {mainUrl, apiKey, categories, page, lenguage} = API;
 
-    let routeTrends = `${mainUrl}${categories[0]}${page}${numberPageTrends}&language=es-LA&${apiKey}`;
+
+    let routeTrends = `${mainUrl}${categories[0]}${page}${numberPageTrends}&${lenguageUS ? lenguage[0] : lenguage[1] }&${apiKey}`;
     let routeOriginals = `${mainUrl}${categories[1]}${page}${numberPageOriginals}&${apiKey}`;
     
     // let API = `https://api.themoviedb.org/3/movie/popular?page=${numberPageTrends}&api_key=06b042254658e847272c1a8bf7fe0fb5`;
@@ -132,7 +133,8 @@ const mapStateToProps = state => {
         search: state.search,
         originals: state.originals,
         numberPageTrends: state.numberPageTrends,
-        numberPageOriginals: state.numberPageOriginals
+        numberPageOriginals: state.numberPageOriginals,
+        lenguageUS: state.lenguageUS,
     };
 };
 

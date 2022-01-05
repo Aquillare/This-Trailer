@@ -68,3 +68,8 @@ export const getMovieInfo = payload => ({
     payload
 })
 
+export const changeLenguage = payload => ({
+    type: 'CHANGE_LENGUAGE',
+    payload
+})
+

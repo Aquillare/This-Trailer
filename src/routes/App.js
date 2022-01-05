@@ -29,7 +29,8 @@ const App = () => {
         "myList": [],
         "trends": [],
         "originals": [],
-        "videoKey":[]
+        "videoKey":[],
+        lenguageUS: true,
     }
 
      const composeEnhancers= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; //asi conectamos el dev tols de redux a nuestra aplicacion.

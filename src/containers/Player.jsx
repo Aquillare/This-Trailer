@@ -44,7 +44,7 @@ const Player = (props) => {
             <div className="Player-back">
      
                     <button type="button" onClick={() => props.history.goBack()}>
-                        Regresar
+                          Back  
                     </button>
              
             </div>

@@ -18,7 +18,7 @@ import classNames from 'classnames';
 //tambien debemos añadir un cierre a las etiquetas que no lo poseaan, ej <img />
 
 const Header = (props) => {
-    const {user, isLogin , isRegister} = props;   //destructuramos user de props, para poder usar user, en vez de props.user, tambien agregamos isLogin e isRegister para trabajar con el cambio de los stilos del header.
+    const {user, isLogin , isRegister, lenguageUS} = props;   //destructuramos user de props, para poder usar user, en vez de props.user, tambien agregamos isLogin e isRegister para trabajar con el cambio de los stilos del header.
     const hasUser = Object.keys(user).length > 0;  //cone esta validacion cimprovamos si user posee un usuario.
 
     const handleLogout = () => {
@@ -28,7 +28,7 @@ const Header = (props) => {
     const headerClass = classNames('header',{
         isLogin,
         isRegister,
-    })
+    });
 
     return(
         <header className={headerClass}>
