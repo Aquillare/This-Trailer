@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../assets/styles/components/trailerContainer.scss';
+import '../assets/styles/components/TrailerContainer.scss';
 
 const TrailerContainer = (props) => {
 
