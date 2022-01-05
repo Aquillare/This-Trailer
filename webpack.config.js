@@ -18,12 +18,12 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use:[
+                use:
                     {
                       loader: 'babel-loader',
                     }
                     
-                ],
+                ,
                 
             },
             {
@@ -31,22 +31,20 @@ module.exports = {
                 use:[
                     {
                         loader: 'html-loader',
-                    },
-                ],
+                    }
+                ]
             },
             {
-                test: /\.(s*)css$/,
+                test: /\.(css|scss)$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader
-                    },
+                    "style-loader",
                     'css-loader',
                     'sass-loader',
-                ],
+                ]
             },
             {
-                test: /\.(jpg|gif|png|mp4)$/,
-                type: 'asset/resource',
+                test: /\.(jpg|gif|png)$/,
+                type: 'asset',
 
                 
             },
@@ -62,7 +60,7 @@ module.exports = {
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename:'assets/[name].css',
+            filename:'[name].css',
         }),
     ]
 
