@@ -41,12 +41,15 @@ const MovieInfo = (props) => {
                 </div>
                 <button onClick={() => handleViewTrailers()}className='button_verTrailers'>Watch trailers</button>    
                 <div className='MovieInfo_Trailers'>
-                    <div className={!view && 'trailer' || view && 'trailer_view'}>
+                    <div className={!view && 'trailer' || (view && keyVideo.length > 0) && 'trailer_view'}>
                        {keyVideo.length > 0 && view == true ? keyVideo.map(element => 
                            <TrailerContainer key={element.id} value={element}/>
                     
                        )  
-                       : null
+                       : 
+                       <div className={view && 'trailerNone_on' || !view && 'trailerNone_off' }>
+                           <p className='none_on'>Sin trailers para mostrar</p>
+                       </div>   
                        }
                     </div>
                 </div>

@@ -29,9 +29,9 @@ const Player = (props) => {
         <div className="Player">
     
           
-              <iframe 
-                width="100%" 
-                height="600vh"
+              <iframe  className='video'
+                // width="100%" 
+                // height="600vh"
                 src={`https://www.youtube.com/embed/${keyPrueba[3]}`}
                 title={`${"hola"}`}
                 allow="accelerometer; autoplay; clipboard-write; 

@@ -5,6 +5,7 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     height: auto;
+    margin-bottom: 10px;
 }
 
 .button_return{
@@ -82,7 +83,7 @@ transform: scale3d(0.9,0.9,0.9);
     // justify-content: space-around;
     align-items: center;
     // scroll-behavior: auto;
-    height: auto
+    height: auto;
 }
 .trailer_view{
     width: 108%;
@@ -106,6 +107,23 @@ transform: scale3d(0.9,0.9,0.9);
     border-radius: 30px;
  
 }
+.trailerNone_on{
+    width: 110%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.trailerNone_off{
+    display: none;
+}
+.none_on{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+
 @media (max-width: 540px){
     .movieInfo{
         flex-direction: column;
@@ -123,6 +141,9 @@ transform: scale3d(0.9,0.9,0.9);
     }
     .button_vertTrailers{
         margin: 0 0 40px 38%
+    }
+    .trailer_view::-webkit-scrollbar{
+        width: 8px;
     }
    
 }

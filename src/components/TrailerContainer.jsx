@@ -7,14 +7,19 @@ const TrailerContainer = (props) => {
     const {key} = props.value;
 
     return(
-      <section className='trailerContainer'>     
+      <>
+      {key ?
+        <section className='trailerContainer'>     
         <iframe className='trailerContainer_video'
           src={`https://www.youtube.com/embed/${key}`}
           title={`${"hola"}`}
           allow="accelerometer; autoplay; clipboard-write; 
           encrypted-media; gyroscope; picture-in-picture" >
         </iframe>
-      </section>   
+      </section> :
+    
+        <p>nada para mostrar</p>}
+      </>
     )
     
 }

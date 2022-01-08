@@ -1,22 +1,39 @@
-footer{
+.footer{
     background: #2D2D34;
     display: flex;
     align-items: center;
     width: 100%;
+    justify-content: space-between;
     height: 64px;
 }
-footer a{
-    color: white;
-    text-decoration: none;
-    padding-left: 30px;
-    font-weight: bold;
-}
-footer a:hover{
-    text-decoration: underline;
+.name_container{
+    margin-left: 20px;
 }
 
+.name_container p{
+    color: white;
+    text-decoration: none;
+    // padding-left: 30px;
+    font-weight: bold;
+}
+
+.reference_container{
+    margin-right: 20px;
+}
+
+.reference_container img {
+    height: 40px;
+
+}
+
+
 @media (max-width:530px){
-    footer a{
+    .name_container p{
         font-size: 12px;
     }
+    .reference_container img {
+        height: 30px;
+    
+    }
+
 }
