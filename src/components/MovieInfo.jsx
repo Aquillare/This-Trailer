@@ -48,7 +48,7 @@ const MovieInfo = (props) => {
                        )  
                        : 
                        <div className={view && 'trailerNone_on' || !view && 'trailerNone_off' }>
-                           <p className='none_on'>Sin trailers para mostrar</p>
+                           <p className='none_on'>No trailers to show</p>
                        </div>   
                        }
                     </div>
