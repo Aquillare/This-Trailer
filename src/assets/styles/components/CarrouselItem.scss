@@ -1,5 +1,5 @@
 .carrousel-item{
-    background-color: aqua;
+    background: #eee;
     width: 200px;
     height: 250px;
     border-radius: 30px;
@@ -10,6 +10,22 @@
     position: relative;
     overflow: hidden;
 
+}
+.carrousel-item--skeleton{
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f53b 18%, #ececec 33%);
+    animation: 1.5s shine linear infinite;
+    animation: 1.5s shine linear infinite;
+    background-size: 200% 100%;
+    width: 200px;
+    height: 250px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-right: 10px;
+    transition: 450ms;
+    transform-origin: center left;
+    position: relative;
+    overflow: hidden;
 }
 .carrousel-item:hover ~ .carrousel-item,.carrousel-item:focus ~ .carrousel-item{
     transform: translate3d(100px,0,0);
@@ -103,3 +119,9 @@
     border-radius: 4px;
     z-index: 1;
 }
+
+@keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
