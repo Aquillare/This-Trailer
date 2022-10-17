@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { connect } from 'react-redux';
-import '../assets/styles/components/Search.scss';
 import { searchVideo } from '../actions';
 import { resultSearch } from '../actions';
-
+import API from '../API/Api.js';
+import '../assets/styles/components/Search.scss';
 
 const Search = props => {
 
-    const {search} = props.search;
+    const {searchUrl, apiKey, lenguage} = API;
 
     const [form, setValues] = useState({
         videoSearch:"",
-
     });
-
 
     const handleInput = event =>{
         let value = event.target.value;
@@ -25,35 +23,22 @@ const Search = props => {
     const handleSubmit = event =>{
         if(event.key == "Enter" || event.type == "click"){
         event.preventDefault();
-        const vSearch = async() =>{
+        const movieSearch = async() =>{
             let responseSearch;
-            await fetch(`https://api.themoviedb.org/3/search/movie?api_key=06b042254658e847272c1a8bf7fe0fb5&language=en-US&query=${form.videoSearch.replace(" ","+")}&page=1&include_adult=false`)
+            await fetch(`${searchUrl}?${apiKey}&${lenguage[0]}&query=${form.videoSearch.replace(" ","+")}&page=1&include_adult=false`)
             .then(response => response.json())
             .then(responseJson => responseSearch = responseJson);
 
             return responseSearch;
-
-        } 
-        const response = vSearch();
+        };
+        const response = movieSearch();
         response.then(responseSearch => responseSearch.results != undefined ?  props.searchVideo(responseSearch.results) : null);
- 
-       
-        }
-    }
-
-
-
+        };
+    };
 
     const handleTrim = () => {
         props.searchVideo([]);
-    }
-
-
-
-
-
- 
-
+    };
 
     return(
     <section className="main">

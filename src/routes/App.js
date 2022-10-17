@@ -7,17 +7,12 @@ import NotFound from '../containers/NotFound';
 import Layout from '../components/Layout';
 import Player from '../containers/Player';
 import MovieInfo from '../components/MovieInfo';
-import useInitialState from '../hooks/useInitialState';
 import { Provider } from 'react-redux';
 import {createStore, compose} from "redux";
 import reducer from "../reducers";
 
 
 const App = () => {
-
-    //ruta API para bsuquedas //query es el string a buscar.
-    let query;
-    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=06b042254658e847272c1a8bf7fe0fb5&language=en-US&query=${query}&page=1&include_adult=false`
 
     const initialState = {
         user: {},
@@ -33,7 +28,7 @@ const App = () => {
         lenguageUS: true,
     }
 
-     const composeEnhancers= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; //asi conectamos el dev tols de redux a nuestra aplicacion.
+    const composeEnhancers= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; //asi conectamos el dev tols de redux a nuestra aplicacion.
 
     const store = createStore(reducer, initialState, composeEnhancers());
 
