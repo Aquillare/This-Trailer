@@ -8,23 +8,21 @@ import ViewIcon from "../assets/static/eye.png";
 import PropTypes from 'prop-types';
 import removeIcon from '../assets/static/remove-icon.png';
 import { Link } from 'react-router-dom';
-import useGetMovies from '../hooks/useGetMovies';
-import {useState} from 'react';
 import { addKeyVideo } from '../actions';
 import { getMovieInfo } from '../actions';
 import API from '../API/Api.js';
 
 
+
+
 const CarrouselItem = (props) => {
 
-    const {id , poster_path, title, release_date, overview, isList} = props;
+    const {id , poster_path, title, release_date, overview, isList, vote_average} = props;
 
     const {imgUrl, mainUrl, apiKey} = API;
     
 
     const urlVideo= `${mainUrl}${id}/videos?${apiKey}`;
-    
-
 
     const handlePlay =  async () => {
         const response = await fetch(urlVideo);
@@ -35,7 +33,7 @@ const CarrouselItem = (props) => {
 
     const handleMovieInfo =  () => {
         props.getMovieInfo({
-            id, poster_path, title, release_date, overview
+            id, poster_path, title, release_date, overview, vote_average
         })
         handlePlay()
     }
@@ -53,7 +51,8 @@ const CarrouselItem = (props) => {
     };
 
     return(
-        <div className="carrousel-item">
+
+        <div className={props.id !== undefined ? "carrousel-item": "carrousel-item--skeleton"}>
             <img className="carrousel-item__img" src={ `${imgUrl}${poster_path}`} alt="cover"/>
             <div className="carrousel-item__details">
                 <div>
