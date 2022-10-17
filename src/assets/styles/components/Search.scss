@@ -38,6 +38,7 @@
     height: 150px;
     width: 100px;
     transform: translate3d(0,100,20);
+    cursor: pointer;
 }
 
 .containerButtons{
@@ -62,6 +63,7 @@
 }
 .buttonSearch:hover{
     filter: brightness(1.2);
+    cursor: pointer;
 }
 .buttonSearch:active{
     transform: scale3d(0.9,0.9,0.9);
@@ -79,6 +81,7 @@
 }
 .buttonRemove:hover{
     filter: brightness(1.2);
+    cursor: pointer;
 }
 .buttonRemove:active{
     transform: scale3d(0.9,0.9,0.9);

@@ -22,18 +22,7 @@
     border:1px solid white;
     font-size: 16px;
 }
-.carrousel-item{
-    background-color: aqua;
-    width: 200px;
-    height: 250px;
-    border-radius: 30px;
-    display: inline-block;
-    transition: 450ms;
-    transform-origin: center left;
-    position: relative;
-    overflow: hidden;
 
-}
 
 .carrousel-item__img{
     width: 200px;
