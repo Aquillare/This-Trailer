@@ -1,4 +1,5 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -45,8 +46,12 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(jpg|gif|png|svg)$/,
-                type: 'asset/resource',
+                test: /\.(eot|ttf|woff|woff2|jpg|gif|png|svg)$/,
+                use:[
+                    {
+                        loader: 'file-loader',
+                    }
+                ]
 
                 
             },
@@ -64,6 +69,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename:'[name].css',
         }),
+        new Dotenv()
     ]
 
 }
