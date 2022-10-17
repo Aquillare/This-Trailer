@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from 'react-redux';
 import { addVideosStateTrends, addVideosStateOriginals } from "../actions";
 import Search from "../components/Search";
@@ -25,8 +25,9 @@ const Home = ( props ) => {
 
     const {numberPageTrends, numberPageOriginals, lenguageUS} = props;
 
-    const {mainUrl, apiKey, categories, page, lenguage} = API;
+    const items = [1,2,3,4,5,6,7,8,9,10];
 
+    const {mainUrl, apiKey, categories, page, lenguage} = API;
 
     let routeTrends = `${mainUrl}${categories[0]}${page}${numberPageTrends}&${lenguageUS ? lenguage[0] : lenguage[1] }&${apiKey}`;
     let routeOriginals = `${mainUrl}${categories[1]}${page}${numberPageOriginals}&${apiKey}`;
@@ -71,16 +72,19 @@ const Home = ( props ) => {
                     
                     <Carrousel>
                        
-                      {props.myList.map( item =>
+                      {
+                         props.myList.map( item =>
                             <CarrouselItem
                               key={item.id}
                               {...item}
                               isList //esto es una validacion, nos servira para luego en carrouselItem.jsx establecer una codicion.
                             />
-                        )}
+                        )
+                      }
                       
                     </Carrousel>
-                </Categories>}   
+                </Categories> 
+                }   
                 
                 <Categories tittle="Trends">
 
@@ -89,18 +93,29 @@ const Home = ( props ) => {
                             <ButtonPrevious nameButton="Previous" categoryButton="Trends" page={numberPageTrends}/>
                             <ButtonNext nameButton="Next" categoryButton="Trends" page={numberPageTrends}/>
                         </ContainersButtonsChangePage>
-           
-                    <Carrousel>
-                    
-                        
+
+                    { pageTrends.length === 0  &&
+                        <Carrousel>
+                        { 
+                            items.map( (i) =>
+                                <CarrouselItem key={i}/>) 
+                       
+                        }
+                        </Carrousel>
+                    }
+
+                    { pageTrends.length > 0 &&
+                        <Carrousel>     
                         { 
                             pageTrends.map( item =>
                                 <CarrouselItem  key={item.id} {...item}/>) 
                        
                         }
-                        
-                     
-                    </Carrousel>
+                        </Carrousel>
+                    }
+
+                   
+                    
                 </Categories>
 
                 <Categories tittle="Populars">
@@ -113,9 +128,25 @@ const Home = ( props ) => {
                     <Carrousel>
 
 
-                        {pageOriginals.map( item =>
-                            <CarrouselItem key={item.id} {...item}/>
-                        )}
+                    { pageOriginals.length === 0  &&
+                        <Carrousel>
+                        { 
+                            items.map( (i) =>
+                                <CarrouselItem key={i}/>) 
+                       
+                        }
+                        </Carrousel>
+                    }
+
+                    { pageOriginals.length > 0 &&
+                        <Carrousel>     
+                        { 
+                            pageOriginals.map( item =>
+                                <CarrouselItem  key={item.id} {...item}/>) 
+                       
+                        }
+                        </Carrousel>
+                    }
                         
 
 
