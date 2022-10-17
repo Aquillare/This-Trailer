@@ -6,7 +6,7 @@
 const API_KEY = process.env.API_KEY;
 
 const rutaApi = {
-    apiKey: API_KEY,
+    apiKey: 'api_key=06b042254658e847272c1a8bf7fe0fb5',
     mainUrl: 'https://api.themoviedb.org/3/movie/',
     searchUrl: 'https://api.themoviedb.org/3/search/movie/',
     page:'?page=',
