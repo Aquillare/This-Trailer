@@ -25,6 +25,7 @@ const Search = props => {
         event.preventDefault();
         const movieSearch = async() =>{
             let responseSearch;
+            console.log(searchUrl);
             await fetch(`${searchUrl}?${apiKey}&${lenguage[0]}&query=${form.videoSearch.replace(" ","+")}&page=1&include_adult=false`)
             .then(response => response.json())
             .then(responseJson => responseSearch = responseJson);

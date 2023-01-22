@@ -28,7 +28,10 @@ const  ButtonNext = (props) => {
     
     return(
         <>
-        <button className="buttonChangePage"onClick={() => handleNextPage(props.page,props.categoryButton)} >{props.nameButton}</button>
+        <button className="buttonChangePage"
+            onClick={() => handleNextPage(props.page,props.categoryButton)}>
+                {props.nameButton}
+        </button>
         </>
     )
 
