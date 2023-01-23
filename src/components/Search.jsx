@@ -42,7 +42,7 @@ const Search = props => {
 
     return(
     <section className="main">
-        <h2 className="main__title">What do you want to see today?</h2>
+        <h2 className="main__title">What do you want to see today??</h2>
         <input
             id="value"
             onChange={handleInput}
